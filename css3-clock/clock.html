@@ -1,0 +1,174 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>小时钟</title>
+	<style>
+		.body{
+			margin: 0;
+			padding: 0;
+			position: relative;
+		}
+		.time-wrap{
+			position: absolute;
+			width: 400px;
+			height: 400px;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			margin: auto;
+			border-radius: 50%;
+			background: #3c3c3c;
+		}
+		.time{
+			position: relative;
+			width: 100%;
+			height: 100%;
+		}
+		.time i{
+			font-size: 20px;
+			width: 20px;
+			height: 20px;
+			color: #fff;
+			font-weight: 600;
+			position: absolute;
+			top: 50%; 
+			left: 50%;
+			margin: -10px 0 0 -10px;
+		}
+		.time i:nth-child(1){
+			transform: rotate(30deg) translateY(-180px);
+		}
+		.time i:nth-child(2){
+			transform: rotate(60deg) translateY(-180px);
+		}
+		.time i:nth-child(3){
+			transform: rotate(90deg) translateY(-180px);
+		}
+		.time i:nth-child(4){
+			transform: rotate(120deg) translateY(-180px);
+		}
+		.time i:nth-child(5){
+			transform: rotate(150deg) translateY(-180px);
+		}
+		.time i:nth-child(6){
+			transform: rotate(180deg) translateY(-180px);
+		}
+		.time i:nth-child(7){
+			transform: rotate(210deg) translateY(-180px);
+		}
+		.time i:nth-child(8){
+			transform: rotate(240deg) translateY(-180px);
+		}
+		.time i:nth-child(9){
+			transform: rotate(270deg) translateY(-180px);
+		}
+		.time i:nth-child(10){
+			transform: rotate(300deg) translateY(-180px);
+		}
+		.time i:nth-child(11){
+			transform: rotate(330deg) translateY(-180px);
+		}
+		.time i:nth-child(12){
+			transform: rotate(360deg) translateY(-180px);
+		}
+		.time div{
+			width: 20px;
+			height: 20px;
+			color: #fff;
+			position: absolute;
+			top: 50%; 
+			left: 50%;
+			margin: -10px 0 0 -10px;
+		}
+		#point{
+			width: 20px;
+			height: 20px;
+			background: #fff;
+			z-index: 30;
+			border-radius: 50%;
+			box-shadow: 0 0 20px rgba(0,0,0,0.6) inset;
+		}
+		#hour{
+			z-index: 1;
+		}
+		#minute{
+			z-index: 10;
+		}
+		#second{
+			z-index: 20;
+		}
+		#hour:after{
+			content: "";
+			height: 120px;
+			width: 8px;
+			background: #fff;
+			position: absolute;
+			left: 50%;
+			top: -400%;
+			margin-left:-4px; 
+		}
+		#minute:after{
+			content: "";
+			height: 160px;
+			width: 6px;
+			background: #fff;
+			position: absolute;
+			left: 50%;
+			top: -500%;
+			margin-left:-3px; 
+		}
+		#second:after{
+			content: "";
+			height: 200px;
+			width: 4px;
+			background: #fff;
+			position: absolute;
+			left: 50%;
+			top: -600%;
+			margin-left:-2px; 
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<div class="time-wrap">
+			<div class="time">
+				<i>1</i>
+				<i>2</i>
+				<i>3</i>
+				<i>4</i>
+				<i>5</i>
+				<i>6</i>
+				<i>7</i>
+				<i>8</i>
+				<i>9</i>
+				<i>10</i>
+				<i>11</i>
+				<i>12</i>
+				<div id="point"></div>
+				<div id="hour"></div>
+				<div id="minute"></div>
+				<div id="second"></div>
+			</div>
+		</div>
+	</div>
+</body>
+<script type="text/javascript">
+ 	var hour = document.getElementById('hour');
+ 	var minute = document.getElementById('minute');
+ 	var second = document.getElementById('second');
+ 	var nowDate,nowHour,nowMinute,nowSecond,clockHour;
+ 	var clock = setInterval(function(){
+ 		nowDate = new Date();/*获取当前时间 */
+ 		nowHour = nowDate.getHours();
+ 		nowMinute = nowDate.getMinutes();
+ 		nowSecond = nowDate.getSeconds();
+ 		// console.log(nowHour);
+ 		clockHour = nowHour % 12;/*转为12进制小时*/
+ 		hour.style.transform = "rotate("+clockHour * 30+"deg)";
+ 		minute.style.transform = "rotate("+nowMinute * 6+"deg)";
+ 		second.style.transform = "rotate("+nowSecond * 6+"deg)";
+ 	},1000);
+</script>
+</html>
