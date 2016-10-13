@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>曲线阴影和翘边阴影</title>
+	<style>
+		body{
+			font-size: 20px;
+			font-family: "微软雅黑";
+		}
+		ul,li{
+			list-style: none;
+			margin: 0;
+			padding: 0;
+		}
+		.wrap{
+			width:70%;
+			height:200px;
+			margin: 50px auto;
+			background: #fff;
+		}
+		.wrap h1{
+			font-size: 20px;
+			text-align: center;
+			line-height: 200px;
+		}
+		.effect{
+			/*border: 1px solid #000;*/
+			position: relative;
+			box-shadow:0 1px 4px rgba(0,0,0,0.3),0 0 20px rgba(0,0,0,0.1) inset;
+		}
+		.effect:after,.effect:before{
+			content: '';
+			background: #000;
+			z-index: -1;
+			position: absolute;
+			top: 50%;
+			bottom: 0;
+			left: 10px;
+			right: 10px;
+			border-radius: 100px/10px;
+			box-shadow:0 0 20px rgba(0,0,0,0.8);
+		}
+		.box{
+			width: 980px;
+			height: auto;
+			clear: both;
+			overflow: hidden;
+			margin: 20px auto;
+		}
+		.box li{
+			width: 300px;
+			height: 210px;
+			float: left;
+			position: relative;
+			background: #fff;
+			margin: 20px 10px;
+			border: 2px solid #efefef;
+			box-shadow: 0 1px 4px rgba(0,0,0,0.27),0 0 60px rgba(0,0,0,0.1) inset;
+		}
+		.box li img{
+			display: block;
+			width: 290px;
+			height: 200px;
+			margin: 5px;
+		}
+		.box li:before{
+			content: '';
+			position: absolute;
+			z-index: -1;
+			width: 90%;
+			height: 80%;
+			left: 20px;
+			bottom: 8px;
+			background: transparent;
+			box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+			transform:skew(-12deg) rotate(-4deg) ;
+		}
+		.box li:after{
+			content: '';
+			position: absolute;
+			z-index: -1;
+			width: 90%;
+			height: 80%;
+			right: 20px;
+			bottom: 8px;
+			background: transparent;
+			box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+			transform:skew(12deg) rotate(4deg);
+		}
+	</style>
+</head>
+<body>
+	<!-- 曲线阴影和翘边阴影是多个投影的重叠 -->
+	<div class="wrap effect">
+		<h1>这里是曲线阴影</h1>
+	</div>
+	<ul class="box">
+		<li><img src="images/test1.jpg" alt="testimg"></li>
+		<li><img src="images/test1.jpg" alt="testimg"></li>
+		<li><img src="images/test1.jpg" alt="testimg"></li>
+	</ul>
+</body>
+</html>
