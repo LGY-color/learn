@@ -15,16 +15,16 @@ function random(range){
 //1.点击出现翻页
 function turn(elem) {
 	var cls = elem.className;
-	var n = elem.id.replace(/[^0-9]/ig, ""); //慕课网方法 var n = elem.id.split("_")[1]
+	var n = elem.id.replace(/[^0-9]/ig, ""); 
 	if (!/photo-center/.test(cls)) {
 		return resort(n);
 	}
 	if (/rotate-front/.test(cls)) {
 		cls = cls.replace(/rotate-front/, 'rotate-back');
-		g("#nav" + n).className = g("#nav" + n).className.replace('i','i curr-back'); //g("#nav" + n).className += " curr-back";
+		g("#nav" + n).className = g("#nav" + n).className.replace('i','i curr-back'); 
 	} else {
 		cls = cls.replace(/rotate-back/, 'rotate-front');
-		g("#nav" + n).className = g("#nav" + n).className.replace(/\s*curr-back\s*/, " "); // g("#nav"+n).className = "i";
+		g("#nav" + n).className = g("#nav" + n).className.replace(/\s*curr-back\s*/, " "); 
 	}
 	return elem.className = cls;
 }
